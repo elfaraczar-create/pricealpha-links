@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PriceAlpha.br — radar de preço</title>
+<meta name="description" content="Radar de preço do @pricealpha.br: o que está abaixo do preço do varejo agora e os links de cada post.">
+<meta name="theme-color" content="#070b10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23adff2f'/%3E%3Ctext x='7' y='28' font-family='Arial' font-size='19' font-weight='900' fill='%23091007'%3EP%CE%B1%3C/text%3E%3C/svg%3E">
+<style>
+:root { --bg:#070b10; --panel:#101821; --deep:#0b1118; --line:#223040; --ink:#f4f8fb;
+  --muted:#8fa1b2; --lime:#adff2f; --lime-ink:#091007; --teal:#26a69a; color-scheme:dark; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink);
+  font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; }
+.wrap { max-width:680px; margin:0 auto; padding:18px 16px 48px; }
+.top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.brand { display:flex; align-items:center; gap:10px; font-weight:800; font-size:20px; }
+.brand b, .lime { color:var(--lime); }
+.logo { width:36px; height:36px; border-radius:10px; background:var(--lime); color:var(--lime-ink);
+  display:grid; place-items:center; font-weight:900; font-size:17px; }
+.motto, .meta, .sub, .facts, h2 { font-family:ui-monospace,Consolas,"Courier New",monospace; }
+.motto { margin:0; color:var(--muted); font-size:11px; letter-spacing:2px; }
+.lead { margin:14px 0; font-size:16px; color:#dfe7ee; }
+.lead b { color:var(--ink); }
+.finder { position:sticky; top:0; z-index:3; margin:0 -16px; padding:10px 16px; background:var(--bg);
+  border-bottom:1px solid transparent; }
+.finder label { display:block; margin-bottom:6px; font-size:13px; font-weight:700; color:var(--lime); }
+.finder input { width:100%; padding:13px 14px; border-radius:12px; border:1px solid var(--line);
+  background:var(--panel); color:var(--ink); font:inherit; }
+.finder input:focus { outline:2px solid var(--lime); outline-offset:1px; }
+.cats { display:flex; gap:8px; overflow-x:auto; padding:8px 0 4px; scrollbar-width:none; }
+.cats button { flex:none; padding:7px 12px; border-radius:999px; border:1px solid var(--line);
+  background:transparent; color:var(--ink); font:inherit; font-size:14px; cursor:pointer; }
+.cats button[aria-pressed="true"] { background:var(--lime); color:var(--lime-ink); border-color:var(--lime); font-weight:700; }
+h2 { margin:26px 0 2px; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:var(--ink);
+  display:flex; align-items:center; gap:8px; }
+.dot { width:9px; height:9px; border-radius:50%; background:var(--lime); box-shadow:0 0 0 4px rgba(173,255,47,.18); }
+.sub { margin:0 0 12px; color:var(--muted); font-size:12px; }
+.signals { display:grid; grid-auto-flow:column; grid-auto-columns:min(78%,270px); gap:12px;
+  overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory; scrollbar-width:thin; }
+.signal { scroll-snap-align:start; display:flex; flex-direction:column; gap:6px; padding:14px;
+  border-radius:16px; background:linear-gradient(160deg,#132012,#0e161f 55%); border:1px solid #2f4a1c; }
+.sig-top { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.signal h3 { margin:2px 0 0; font-size:15px; line-height:1.25; }
+.big { margin:0; font-size:26px; font-weight:900; color:var(--lime); }
+.why { margin:0; font-size:13px; color:#dfe7ee; }
+.facts { margin:0; display:flex; flex-direction:column; gap:1px; font-size:11px; color:var(--muted); }
+.facts a { color:var(--muted); }
+.signal .cta { margin-top:auto; }
+.chip { align-self:flex-start; display:inline-block; padding:3px 8px; border-radius:7px; font-size:12px;
+  font-weight:800; letter-spacing:.3px; }
+.chip.entry { background:var(--lime); color:var(--lime-ink); }
+.chip.wait { background:#1a2430; color:#dfe7ee; }
+.truth { margin:0; font-size:12px; color:var(--muted); }
+.truth b { color:#dfe7ee; font-weight:700; }
+.thumb { flex:none; width:56px; height:56px; border-radius:10px; background:#fff; display:grid;
+  place-items:center; overflow:hidden; }
+.thumb img { width:100%; height:100%; object-fit:contain; }
+.noimg { color:var(--lime-ink); font-weight:900; }
+.post { margin:0 0 14px; padding:14px; border-radius:16px; background:var(--panel); border:1px solid var(--line);
+  scroll-margin-top:96px; }
+.post.hit, .post:target { border-color:var(--lime); box-shadow:0 0 0 1px var(--lime); }
+.post > header { display:flex; gap:12px; align-items:center; margin-bottom:10px; }
+.cover { flex:none; width:76px; height:76px; border-radius:10px; object-fit:cover; background:var(--deep); }
+.meta { margin:0; color:var(--muted); font-size:11px; letter-spacing:.5px; }
+.code { color:var(--lime); font-weight:800; }
+.post h3 { margin:3px 0; font-size:17px; line-height:1.25; }
+ul { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
+.row { display:flex; gap:12px; padding:10px; border-radius:12px; background:var(--deep); border:1px solid var(--line); }
+.row.featured { border-color:#3b5a22; }
+.row-body { display:flex; flex-direction:column; align-items:flex-start; gap:4px; min-width:0; flex:1; }
+.flag { padding:1px 7px; border-radius:6px; background:var(--lime); color:var(--lime-ink); font-size:10px;
+  font-weight:800; text-transform:uppercase; letter-spacing:.4px; }
+.name, .post h3, .signal h3 { overflow-wrap:anywhere; display:-webkit-box; -webkit-box-orient:vertical;
+  -webkit-line-clamp:2; overflow:hidden; }
+.name { font-weight:700; font-size:15px; }
+.specs { font-size:12px; color:var(--muted); }
+.price { color:var(--lime); font-weight:800; }
+.price small { color:var(--muted); font-weight:400; font-size:11px; }
+.cta { display:inline-block; margin-top:2px; padding:8px 12px; border-radius:9px; background:var(--lime);
+  color:var(--lime-ink); font-size:14px; font-weight:800; text-decoration:none; }
+.cta:hover, .cta:focus-visible { filter:brightness(1.08); outline:2px solid var(--ink); outline-offset:1px; }
+.empty { color:var(--muted); text-align:center; padding:28px 0; }
+.how { margin-top:24px; padding:12px 14px; border-radius:14px; border:1px solid var(--line); color:#dfe7ee; font-size:14px; }
+.how summary { cursor:pointer; font-weight:700; }
+.how p { margin:8px 0 0; }
+footer { margin-top:22px; color:var(--muted); font-size:12px; }
+footer p { margin:6px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><span class="logo">Pα</span><span>PriceAlpha<b>.br</b></span></div>
+    <p class="motto">DADO, NÃO HYPE</p>
+  </header>
+  <p class="lead">Radar de preço de tecnologia do <b>@pricealpha.br</b>. A gente compara o Mercado Livre com o menor preço do varejo e diz se é hora de comprar ou de esperar.</p>
+  <div class="finder">
+    <label for="q">Veio de um post? Digite o número</label>
+    <input id="q" type="search" inputmode="search" placeholder="ex.: 14 — ou o nome do produto" autocomplete="off">
+  </div>
+  
+  
+  <section id="posts" aria-labelledby="posts-t">
+    <h2 id="posts-t">Posts</h2>
+    <p class="sub">Cada post compara 3 produtos. Os links abrem no Mercado Livre.</p>
+    <p class="empty">Os primeiros posts aparecem aqui assim que forem ao ar.</p>
+    <p class="empty" id="nothing" hidden>Nada encontrado. Confira o número no canto da capa do post.</p>
+  </section>
+  <details class="how">
+    <summary>Como a gente lê o preço</summary>
+    <p><b class="lime">▲ Sinal de entrada</b>: o preço do Mercado Livre está abaixo da mediana do varejo nos últimos 40 dias (menor preço diário entre lojas, via Zoom).</p>
+    <p><b>● Aguardar</b>: está acima dessa mediana. O varejo já cobrou menos; vale esperar.</p>
+    <p><b>Etiqueta do ML</b>: o "de/por" do anúncio. Mostramos ao lado quanto ele está abaixo (ou acima) do varejo de verdade.</p>
+  </details>
+  <footer>
+    <p>Links de afiliado: o PriceAlpha pode receber comissão do Mercado Livre pelas compras, sem custo extra para você.</p>
+    <p>Preços mudam a toda hora. Mostramos o último preço que vimos e a data; confira o valor no Mercado Livre antes de comprar.</p>
+  </footer>
+</div>
+<script>
+(() => {
+  const posts = [...document.querySelectorAll(".post")];
+  const signals = [...document.querySelectorAll(".signal")];
+  const sinais = document.getElementById("sinais");
+  const input = document.getElementById("q");
+  const nothing = document.getElementById("nothing");
+  const cats = [...document.querySelectorAll(".cats button")];
+  let cat = "";
+  const norm = (v) => v.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+  const isLive = (el) => Number(el.dataset.live) <= Date.now();
+  function apply() {
+    const raw = norm(input.value).replace(/^#|^post\s*/, "");
+    const number = /^\d+$/.test(raw) ? Number(raw) : null;
+    let shown = 0;
+    for (const post of posts) {
+      const match = number !== null ? Number(post.dataset.number) === number
+        : !raw || norm(post.dataset.search).includes(raw);
+      post.hidden = !(isLive(post) && match && (!cat || post.dataset.cat === cat));
+      post.classList.toggle("hit", number !== null && !post.hidden);
+      if (!post.hidden) shown++;
+    }
+    let signalsShown = 0;
+    for (const card of signals) {
+      const match = number === null && (!raw || norm(card.dataset.search).includes(raw));
+      card.hidden = !(isLive(card) && match && (!cat || card.dataset.cat === cat));
+      if (!card.hidden) signalsShown++;
+    }
+    if (sinais) sinais.hidden = signalsShown === 0;
+    nothing.hidden = shown > 0 || (!raw && !cat);
+  }
+  input.addEventListener("input", apply);
+  for (const button of cats) {
+    button.addEventListener("click", () => {
+      cat = button.dataset.cat;
+      cats.forEach((b) => b.setAttribute("aria-pressed", String(b === button)));
+      apply();
+    });
+  }
+  const fromHash = /^#p0*(\d+)$/.exec(location.hash);
+  if (fromHash) input.value = fromHash[1];
+  apply();
+  // Posts scheduled while this page was already open appear at their time.
+  setInterval(apply, 60000);
+})();
+</script>
+</body>
+</html>
