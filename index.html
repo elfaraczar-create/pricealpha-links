@@ -81,6 +81,11 @@ ul { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
 .cta { display:inline-block; margin-top:2px; padding:8px 12px; border-radius:9px; background:var(--lime);
   color:var(--lime-ink); font-size:14px; font-weight:800; text-decoration:none; }
 .cta:hover, .cta:focus-visible { filter:brightness(1.08); outline:2px solid var(--ink); outline-offset:1px; }
+.repost { margin:0 0 10px; padding:6px 10px; border-radius:9px; background:#132012; color:var(--lime);
+  font-size:13px; font-weight:700; }
+.radar.collapsed .more { display:none; }
+.toggle { width:100%; margin-top:10px; padding:11px; border-radius:12px; border:1px solid var(--line);
+  background:transparent; color:var(--ink); font:inherit; font-weight:700; cursor:pointer; }
 .empty { color:var(--muted); text-align:center; padding:28px 0; }
 .how { margin-top:24px; padding:12px 14px; border-radius:14px; border:1px solid var(--line); color:#dfe7ee; font-size:14px; }
 .how summary { cursor:pointer; font-weight:700; }
@@ -95,13 +100,135 @@ footer p { margin:6px 0; }
     <div class="brand"><span class="logo">Pα</span><span>PriceAlpha<b>.br</b></span></div>
     <p class="motto">DADO, NÃO HYPE</p>
   </header>
-  <p class="lead">Radar de preço de tecnologia do <b>@pricealpha.br</b>. A gente compara o Mercado Livre com o menor preço do varejo e diz se é hora de comprar ou de esperar.</p>
+  <p class="lead">Radar de preço de tecnologia do <b>@pricealpha.br</b>. A gente compara o Mercado Livre com o menor preço do varejo e diz se é hora de comprar ou de esperar. Agora acompanhando <b>10 produtos</b>.</p>
   <div class="finder">
     <label for="q">Veio de um post? Digite o número</label>
     <input id="q" type="search" inputmode="search" placeholder="ex.: 14 — ou o nome do produto" autocomplete="off">
   </div>
-  
-  
+  <div class="cats" role="group" aria-label="Filtrar por categoria"><button type="button" data-cat="" aria-pressed="true">Tudo</button><button type="button" data-cat="headsets">Headsets e fones</button><button type="button" data-cat="monitores">Monitores</button><button type="button" data-cat="teclados">Teclados</button></div>
+  <section id="sinais" aria-labelledby="sinais-t">
+    <h2 id="sinais-t"><span class="dot"></span>Sinais de entrada agora</h2>
+    <p class="sub">Preço do Mercado Livre abaixo do que o varejo cobrou nos últimos 40 dias.</p>
+    <div class="signals">
+    <article class="signal" data-cat="monitores" data-search="monitor gamer lg 24ms500-b">
+      <div class="sig-top"><span class="thumb"><img src="https://http2.mlstatic.com/D_NQ_NP_921982-MLA99962503055_112025-F.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></span><svg class="spark" viewBox="0 0 132 44" width="132" height="44" aria-hidden="true"><line x1="5.0" y1="10.9" x2="127.0" y2="10.9" stroke="#6f8193" stroke-dasharray="3 3" stroke-width="1"/><polyline points="5.0,39.0 7.9,39.0 7.9,35.3 10.8,35.3 10.8,35.3 13.8,35.3 13.8,35.3 16.7,35.3 16.7,26.7 19.6,26.7 19.6,10.9 22.6,10.9 22.6,10.9 25.5,10.9 25.5,10.9 28.4,10.9 28.4,26.7 31.3,26.7 31.3,5.0 34.2,5.0 34.2,5.0 37.2,5.0 37.2,5.0 40.1,5.0 40.1,7.3 43.0,7.3 43.0,5.0 46.0,5.0 46.0,8.9 48.9,8.9 48.9,8.9 51.8,8.9 51.8,8.9 54.7,8.9 54.7,8.9 57.6,8.9 57.6,8.9 60.6,8.9 60.6,6.5 63.5,6.5 63.5,7.3 66.4,7.3 66.4,8.9 69.3,8.9 69.3,10.9 72.3,10.9 72.3,10.9 75.2,10.9 75.2,10.9 78.1,10.9 78.1,10.9 81.0,10.9 81.0,10.9 84.0,10.9 84.0,10.9 86.9,10.9 86.9,10.9 89.8,10.9 89.8,10.9 92.8,10.9 92.8,10.9 95.7,10.9 95.7,26.7 98.6,26.7 98.6,26.7 101.5,26.7 101.5,26.7 104.5,26.7 104.5,26.7 107.4,26.7 107.4,26.7 110.3,26.7 110.3,26.7 113.2,26.7 113.2,26.7 116.2,26.7 116.2,35.3 119.1,35.3 119.1,35.3" fill="none" stroke="#c9d6e2" stroke-width="1.6"/><circle cx="122.0" cy="32.1" r="6" fill="#adff2f" opacity=".3"/><circle cx="122.0" cy="32.1" r="3.2" fill="#adff2f"/></svg></div>
+      <span class="chip entry">▲ SINAL DE ENTRADA</span>
+      <h3 title="Monitor Gamer LG 24MS500-B">Monitor Gamer LG 24MS500-B</h3>
+      <p class="big">R$ 508,23</p>
+      <p class="why">−19,2% vs mediana do varejo em 40 dias</p>
+      <p class="facts"><span>mín. do varejo 40d: R$ 469,00 em 10/08</span><span>visto em 18/09</span></p>
+      <p class="truth">Etiqueta do ML: −49% (de R$ 999,00) · <b>vs varejo real: −19,2%</b></p>
+      <a class="cta" href="https://meli.la/2y42pmm" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre<span aria-hidden="true"> ›</span></a>
+    </article>
+    </div>
+  </section>
+  <section id="radar" aria-labelledby="radar-t">
+    <h2 id="radar-t">No radar</h2>
+    <p class="sub">Tudo o que acompanhamos, dos melhores momentos de compra para os piores.</p>
+    <ul class="radar collapsed">
+        <li class="row radar-row" data-cat="monitores" data-search="monitor gamer lg 24ms500-b">
+          <span class="thumb"><img src="https://http2.mlstatic.com/D_NQ_NP_921982-MLA99962503055_112025-F.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></span>
+          <div class="row-body">
+            <span class="name" title="Monitor Gamer LG 24MS500-B">Monitor Gamer LG 24MS500-B</span>
+            
+            <span class="price">R$ 508,23 <small>visto em 18/09</small></span>
+            <span class="chip entry">▲ SINAL DE ENTRADA · −19,2%</span>
+            <a class="cta" href="https://meli.la/2y42pmm" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre<span aria-hidden="true"> ›</span></a>
+          </div>
+        </li>
+        <li class="row radar-row" data-cat="headsets" data-search="fone de ouvido headset gamer havit h2002d">
+          <span class="thumb"><img src="https://http2.mlstatic.com/D_NQ_NP_759854-MLA99487952684_112025-F.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></span>
+          <div class="row-body">
+            <span class="name" title="Fone De Ouvido Headset Gamer Havit H2002d">Fone De Ouvido Headset Gamer Havit H2002d</span>
+            
+            <span class="price">R$ 188,00 <small>visto em 18/09</small></span>
+            
+            <a class="cta" href="https://meli.la/1TzsHKE" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre<span aria-hidden="true"> ›</span></a>
+          </div>
+        </li>
+        <li class="row radar-row" data-cat="headsets" data-search="fone gamer qkz ak6">
+          <span class="thumb"><img src="https://http2.mlstatic.com/D_NQ_NP_882147-MLA99558182796_122025-F.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></span>
+          <div class="row-body">
+            <span class="name" title="Fone Gamer Qkz Ak6">Fone Gamer Qkz Ak6</span>
+            
+            <span class="price">R$ 23,52 <small>visto em 18/09</small></span>
+            
+            <a class="cta" href="https://meli.la/1FAhwEM" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre<span aria-hidden="true"> ›</span></a>
+          </div>
+        </li>
+        <li class="row radar-row" data-cat="monitores" data-search="monitor gamer aoc série b30 21.5&#x27;&#x27; full hd gaming">
+          <span class="thumb"><img src="https://http2.mlstatic.com/D_NQ_NP_621055-MLA91966913733_092025-F.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></span>
+          <div class="row-body">
+            <span class="name" title="Monitor gamer Aoc Série B30 21.5&#x27;&#x27; Full Hd Gaming">Monitor gamer Aoc Série B30 21.5&#x27;&#x27; Full Hd Gaming</span>
+            <span class="specs">1 HDMI, VGA</span>
+            <span class="price">R$ 424,00 <small>visto em 18/09</small></span>
+            
+            <a class="cta" href="https://meli.la/1tze9BQ" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre<span aria-hidden="true"> ›</span></a>
+          </div>
+        </li>
+        <li class="row radar-row" data-cat="monitores" data-search="monitor lg led 20&quot; hd+">
+          <span class="thumb"><img src="https://http2.mlstatic.com/D_NQ_NP_699928-MLA105314087580_012026-F.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></span>
+          <div class="row-body">
+            <span class="name" title="Monitor LG LED 20&quot; HD+">Monitor LG LED 20&quot; HD+</span>
+            <span class="specs">HDMI, D-Sub, Saída para fone de ouvido</span>
+            <span class="price">R$ 334,00 <small>visto em 18/09</small></span>
+            
+            <a class="cta" href="https://meli.la/1hgm1Gf" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre<span aria-hidden="true"> ›</span></a>
+          </div>
+        </li>
+        <li class="row radar-row" data-cat="teclados" data-search="teclado mecânico gamer">
+          <span class="thumb"><img src="https://http2.mlstatic.com/D_NQ_NP_622007-MLA99539825320_122025-F.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></span>
+          <div class="row-body">
+            <span class="name" title="Teclado Mecânico Gamer">Teclado Mecânico Gamer</span>
+            
+            <span class="price">R$ 100,00 <small>visto em 17/09</small></span>
+            
+            <a class="cta" href="https://meli.la/2u4jFqU" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre<span aria-hidden="true"> ›</span></a>
+          </div>
+        </li>
+        <li class="row radar-row" data-cat="teclados" data-search="teclado mecânico gamer redragon kumara k552-rgb">
+          <span class="thumb"><img src="https://http2.mlstatic.com/D_NQ_NP_858328-MLA92468300434_092025-F.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></span>
+          <div class="row-body">
+            <span class="name" title="Teclado mecânico Gamer Redragon Kumara K552-RGB">Teclado mecânico Gamer Redragon Kumara K552-RGB</span>
+            
+            <span class="price">R$ 1.500,00 <small>visto em 17/09</small></span>
+            
+            <a class="cta" href="https://meli.la/2Wdb7r8" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre<span aria-hidden="true"> ›</span></a>
+          </div>
+        </li>
+        <li class="row radar-row" data-cat="teclados" data-search="teclado mecânico redragon lakshmi rainbow brown k606">
+          <span class="thumb"><img src="https://http2.mlstatic.com/D_NQ_NP_987217-MLA99928502679_112025-F.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></span>
+          <div class="row-body">
+            <span class="name" title="Teclado Mecânico Redragon Lakshmi Rainbow Brown K606">Teclado Mecânico Redragon Lakshmi Rainbow Brown K606</span>
+            
+            <span class="price">R$ 134,36 <small>visto em 18/09</small></span>
+            
+            <a class="cta" href="https://meli.la/25PXNaE" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre<span aria-hidden="true"> ›</span></a>
+          </div>
+        </li>
+        <li class="row radar-row more" data-cat="monitores" data-search="monitor gamer samsung odyssey g5">
+          <span class="thumb"><img src="https://http2.mlstatic.com/D_NQ_NP_987462-MLA99509630578_112025-F.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></span>
+          <div class="row-body">
+            <span class="name" title="Monitor Gamer Samsung Odyssey G5">Monitor Gamer Samsung Odyssey G5</span>
+            <span class="specs">1 HDMI</span>
+            <span class="price">R$ 1.165,18 <small>visto em 18/09</small></span>
+            <span class="chip wait">● AGUARDAR · +4,5%</span>
+            <a class="cta" href="https://meli.la/1bNFKni" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre<span aria-hidden="true"> ›</span></a>
+          </div>
+        </li>
+        <li class="row radar-row more" data-cat="headsets" data-search="headset gamer havit h2002d">
+          <span class="thumb"><img src="https://http2.mlstatic.com/D_NQ_NP_693968-MLA99505956574_112025-F.jpg" alt="" loading="lazy" referrerpolicy="no-referrer"></span>
+          <div class="row-body">
+            <span class="name" title="Headset Gamer Havit H2002d">Headset Gamer Havit H2002d</span>
+            
+            <span class="price">R$ 219,19 <small>visto em 18/09</small></span>
+            <span class="chip wait">● AGUARDAR · +44,2%</span>
+            <a class="cta" href="https://meli.la/1BwzK8c" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre<span aria-hidden="true"> ›</span></a>
+          </div>
+        </li>
+    </ul>
+    <button type="button" class="toggle" id="more">Ver os 10 produtos</button>
+  </section>
   <section id="posts" aria-labelledby="posts-t">
     <h2 id="posts-t">Posts</h2>
     <p class="sub">Cada post compara 3 produtos. Os links abrem no Mercado Livre.</p>
@@ -123,6 +250,10 @@ footer p { margin:6px 0; }
 (() => {
   const posts = [...document.querySelectorAll(".post")];
   const signals = [...document.querySelectorAll(".signal")];
+  const radarRows = [...document.querySelectorAll(".radar-row")];
+  const radarList = document.querySelector(".radar");
+  const radar = document.getElementById("radar");
+  const more = document.getElementById("more");
   const sinais = document.getElementById("sinais");
   const input = document.getElementById("q");
   const nothing = document.getElementById("nothing");
@@ -144,13 +275,24 @@ footer p { margin:6px 0; }
     let signalsShown = 0;
     for (const card of signals) {
       const match = number === null && (!raw || norm(card.dataset.search).includes(raw));
-      card.hidden = !(isLive(card) && match && (!cat || card.dataset.cat === cat));
+      card.hidden = !(match && (!cat || card.dataset.cat === cat));
       if (!card.hidden) signalsShown++;
     }
     if (sinais) sinais.hidden = signalsShown === 0;
+    let radarShown = 0;
+    for (const row of radarRows) {
+      const match = number === null && (!raw || norm(row.dataset.search).includes(raw));
+      row.hidden = !(match && (!cat || row.dataset.cat === cat));
+      if (!row.hidden) radarShown++;
+    }
+    const filtering = Boolean(raw || cat);
+    if (radarList && filtering) radarList.classList.remove("collapsed");
+    if (more) more.hidden = filtering || !radarList.classList.contains("collapsed");
+    if (radar) radar.hidden = radarShown === 0;
     nothing.hidden = shown > 0 || (!raw && !cat);
   }
   input.addEventListener("input", apply);
+  if (more) more.addEventListener("click", () => { radarList.classList.remove("collapsed"); apply(); });
   for (const button of cats) {
     button.addEventListener("click", () => {
       cat = button.dataset.cat;
